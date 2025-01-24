@@ -1,0 +1,54 @@
+/* Logout  */
+.nav-logout{
+    display: flex;
+    align-items: center;
+}
+
+.nav-logout a{
+    color: #fff;
+}
+
+/* signup  */
+
+.signuptext {
+    margin-top: 20px;
+}
+
+.info_passoword {
+    display: flex;
+    gap: 3px;
+}
+.info_passoword i{
+    color: #2e8ece;
+    font-size: 20px;
+}
+@media all and (max-width: 768px) {
+    .signinbtn{
+        font-size: 14px !important;
+    }
+}
+
+.signupimagefile img {
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   margin-right: 10px;
+}
+
+.signupInput input{
+    width: 100% ;
+    border: 1px solid;
+    outline: none;
+    font-size: 15px;
+    transition: .2s ease-in-out;
+    padding: 10px
+}
+
+.signupInput input::placeholder{
+    font-size: 15px;
+}
+
+.signupInput input:focus{
+    border: 1px solid #2e8ece;
+    box-shadow: none;
+}

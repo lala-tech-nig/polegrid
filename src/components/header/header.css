@@ -1,0 +1,445 @@
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+    background: #fff;
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 1px 0 !important;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  #header.header-scrolled {
+    padding: 12px 0;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  #header .logo {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  #header .logo a {
+    color: #111111;
+  }
+  
+  #header .logo a span {
+    color: #32CD32;
+  }
+  
+  #header .logo img {
+    max-height: 40px;
+  }
+  
+  a{
+    text-decoration: none !important;
+  }
+  /*--------------------------------------------------------------
+  # Navigation Menu
+  --------------------------------------------------------------*/
+  /**
+  * Desktop Navigation 
+  */
+  .navbar {
+    padding: 0;
+  }
+  
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-right: 90px;
+  }
+  .navbar li {
+    position: relative;
+  }
+  
+  .navbar a,
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 30px;
+    font-family: "Raleway", sans-serif !important;
+    font-size: 15px;
+    font-weight: 700 !important;
+    color: #000000;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+  
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+  
+  .logo-menuflex{
+    display: flex ;
+    align-items: center;
+    margin-right: 30px;
+  }
+  
+  .sidebarclose{
+    margin-top: 20px;
+  }
+  
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: #32CD32;
+  }
+  
+  .navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 30px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+  }
+  
+  .navbar .dropdown ul li {
+    min-width: 200px;
+  }
+  
+  .navbar .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .logoimg{
+    width: 70px;
+  }
+  
+  .navbar .dropdown ul a i {
+    font-size: 12px;
+  }
+  
+  .navbar .dropdown ul a:hover,
+  .navbar .dropdown ul .active:hover,
+  .navbar .dropdown ul li:hover>a {
+    color: #9fc658;
+  }
+  
+  .navbar .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+  
+  .navbar .dropdown .dropdown ul {
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
+  }
+  
+  .navbar .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
+  }
+  
+  @media (max-width: 1366px) {
+    .navbar .dropdown .dropdown ul {
+      left: -90%;
+    }
+  
+    .navbar .dropdown .dropdown:hover>ul {
+      left: -100%;
+    }
+  }
+  
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .get-started-btn2{
+    color: #000000 !important;
+  }
+  
+  .get-started-btn2:hover, .get-started-btn:hover{
+    color: #32CD32;
+  }
+  
+  .get-started-btn {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    transition: 0.5s;
+    color: #fff;
+    background: #32CD32;
+    border: 2px solid #32CD32;
+  }
+  
+   .get-started-btn:hover {
+    background: transparent;
+    border-color: 2px solid #32CD32;
+  }
+  
+  @media all and (max-width: 560px) {
+    .get-started-btn,
+    .get-started-btn2{
+      font-size: 12px;
+    }
+  }
+  
+  .nav__toggler div{
+    width: 1.8rem;
+    height: 0.2rem;
+    margin: 0.4rem;
+    background: #000;
+    transition: 0.4s ease-in;
+  } 
+  
+  .nav__toggler{
+    cursor: pointer;
+    display: none;
+  }
+  
+  @media all and (max-width: 968px) {
+  .nav__toggler {
+    display: block;
+  }
+  
+  .nav-buttons {
+    margin-right: 20px;
+  }
+  
+  .nav__menu {
+    position: fixed;
+    top: -93vh; /* Start below the viewport */
+    width: 100%;
+    right: 0;
+    height: 40vh;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    justify-content: flex-start !important;
+    display: block !important;
+    transition: 0.5s ease-in;
+  }
+  
+  .navbar .getstarted{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Nav Active class */
+  .nav__active {
+    top: 70px; /* Adjust this value to match the height of your header */
+  }
+  
+  .nav__toggler img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  }
+  
+    .logo-span{
+      color: #32CD32;
+    }
+  
+    .nav-buttons{
+        margin-left: 30px;
+    }
+  
+    /*--------------------------------------------------------------
+  # header
+  --------------------------------------------------------------*/
+  #header {
+    z-index: 997;
+    transition: all 0.5s;
+    padding: 22px 0;
+    background: #fff;
+  }
+  
+  #header.header-scrolled {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 12px 0;
+  }
+  
+  #header .logo h1 {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  #header .logo h1 a,
+  #header .logo h1 a:hover {
+    color: #222222;
+    text-decoration: none;
+  }
+  
+  #header .logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 40px;
+  }
+  .navbar {
+    padding: 0;
+  }
+  
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+  
+  .navbar li {
+    position: relative;
+  }
+  
+  .navbar a,
+  .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 10px 30px;
+    color: #000000;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+  
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+  
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: #32CD32;
+    background-color: transparent !important;
+  }
+  
+  .navbar .getstarted,
+  .navbar .getstarted:focus {
+    background: #32CD32;
+    padding: 8px 25px;
+    margin-left: 30px;
+    border-radius: 50px;
+    color: #fff;
+  }
+  
+  .navbar .getstarted:hover,
+  .navbar .getstarted:focus:hover {
+    color: #fff;
+    background: #32CD32;
+  }
+  
+  .new_here{
+    border: 1px solid #32CD32 !important;
+    background: #32CD32;
+  }
+  
+  .live_stream:hover{
+   background: transparent !important;
+   border: 1px solid #fff !important;
+  }
+  
+  .nav__toggler div{
+    width: 1.8rem;
+    height: 0.2rem;
+    margin: 0.4rem;
+    background: #000;
+    transition: 0.4s ease-in;
+  } 
+  
+  .nav__toggler{
+    cursor: pointer;
+    display: none;
+  }
+  
+  @media all and (max-width: 968px) {
+  .nav__toggler {
+    display: block;
+  }
+  
+  .nav-buttons {
+    margin-right: 20px;
+  }
+  
+  .nav__menu {
+    position: fixed;
+    top: -93vh; /* Start below the viewport */
+    width: 100%;
+    right: 0;
+    height: 40vh;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    justify-content: flex-start !important;
+    display: block !important;
+    transition: 0.5s ease-in;
+  }
+  
+  .navbar .getstarted{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Nav Active class */
+  .nav__active {
+    top: 11%; 
+  }
+  
+  .nav__toggler img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  }
+  
+    .logo-span{
+      color: #32CD32;
+    }
+  
+    .nav-buttons{
+        margin-left: 30px;
+    }
+  
+    /* .nav_dropdownicon{
+      background-color: red !important;
+      width: 200%;
+    } */

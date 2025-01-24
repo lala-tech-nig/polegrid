@@ -1,0 +1,275 @@
+/*=================
+   Quote 
+====================*/
+.form1Flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .formFlex_i,
+  .formFlex_ii {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    width: 48%;
+  }
+  
+  .formFlex_i label,
+  .formFlex_ii label {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .formFlex_i input,
+  .formFlex_ii input {
+    outline: none;
+    border: 1px solid #6c757d;
+    background: transparent;
+    width: 100%;
+    padding: 12px;
+    max-width: 100vw;
+    font-weight: 500;
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+  
+  .serviceTypesDetails {
+    flex: 1 0 300px;
+    margin: 10px;
+  }
+  
+  .formFlex_i select,
+  .formFlex_ii select {
+    padding: 12px;
+  }
+  
+  .form2 input {
+    margin-top: 25px;
+  }
+  
+  .formGeneral {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .formGeneral label {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .formGeneral textarea {
+    resize: none;
+    outline: none;
+    border: 1px solid #6c757d;
+    background: transparent;
+    width: 100%;
+    padding: 12px;
+    max-width: 100vw;
+    font-weight: 500;
+  }
+  
+  .serviceDetails {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .serviceTypesDetails {
+    flex: 1 0 300px;
+    margin: 10px;
+  }
+  
+  .file-input {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #e6ebf2;
+    border: none;
+    border-radius: 5px;
+    color: #6c757d;
+    font-size: 16px;
+  }
+  
+  .file-input input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .browerseFile p {
+    color: yellow;
+  }
+  
+  .QuoteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .QuoteBtn button {
+    outline: none;
+    border: none;
+    background: #32CD32;
+    padding: 12px 30px;
+    color: #e6ebf2;
+    border-radius: 6px;
+  }
+  
+  @media all and (max-width: 768px) {
+    .formFlex_i,
+    .formFlex_ii {
+      display: block;
+      width: 100%;
+    }
+  
+    .formFlex_i select,
+    .formFlex_ii select {
+      width: 100%;
+    }
+  }
+  
+
+  /*--------------------------------------------------------------
+# Buy Tickets Section
+--------------------------------------------------------------*/
+.buy-tickets {
+  margin-top: 50px;
+}
+.buy-tickets .pricing-item {
+  background-color: var(--surface-color);
+  box-shadow: 0 3px 20px -2px rgba(0, 0, 0, 0.1);
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.buy-tickets .pricing-item h3 {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: 24px;
+}
+
+.buy-tickets .pricing-item h4 {
+  font-size: 48px;
+  color: red;
+  font-weight: 400;
+  font-family: var(--heading-font);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.buy-tickets .pricing-item h4 sup {
+  font-size: 28px;
+}
+
+.buy-tickets .pricing-item h4 span {
+  color: color-mix(in srgb, orange, transparent 60%);
+  font-size: 18px;
+}
+
+.buy-tickets .pricing-item ul {
+  padding: 20px 0;
+  list-style: none;
+  color: color-mix(in srgb, orange, transparent 40%);
+  text-align: left;
+  line-height: 20px;
+}
+
+.buy-tickets .pricing-item ul li {
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.buy-tickets .pricing-item ul i {
+  color: #059652;
+  font-size: 24px;
+  padding-right: 3px;
+}
+
+.buy-tickets .pricing-item ul .na {
+  color: color-mix(in srgb, orange, transparent 60%);
+}
+
+.buy-tickets .pricing-item ul .na i {
+  color: color-mix(in srgb, orange, transparent 60%);
+}
+
+.buy-tickets .pricing-item ul .na span {
+  text-decoration: line-through;
+}
+
+.buy-tickets .buy-btn {
+  color: blue;
+  background-color: #32CD32;
+  border: 2px solid #32CD32;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 4px;
+  transition: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+  font-family: var(--heading-font);
+}
+
+.buy-tickets .buy-btn:hover {
+  background: color-mix(in srgb, #32CD32, transparent 20%);
+}
+
+.buy-tickets .featured {
+  background: #32CD32;
+}
+
+.buy-tickets .featured h3,
+.buy-tickets .featured h4,
+.buy-tickets .featured h4 span,
+.buy-tickets .featured ul,
+.buy-tickets .featured ul .na,
+.buy-tickets .featured ul i,
+.buy-tickets .featured ul .na i {
+  color: blue;
+}
+
+.buy-tickets .featured .buy-btn {
+  background: #32CD32;
+  color: blue;
+  border-color: blue;
+}
+
+.buy-tickets .featured .buy-btn:hover {
+  background: color-mix(in srgb, #32CD32 90%, black 15%);
+  color: blue;
+}
+
+.paymentform {
+  
+}
+
+.paymentformchild{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 6px;
+}
+
+.paymentformchild input{
+  border: none;
+  outline: none;
+  padding: 10px;
+}

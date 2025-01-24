@@ -1,0 +1,62 @@
+/* *****************
+   Testimony
+ ****************** */
+ .star {
+    color: #d01d3f;
+  }
+  
+  .testimony_general {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+  
+  .testimony_general label {
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  
+  .testimony_general input,
+  .testimony_general textarea {
+    border: 0.1px solid #777777;
+    outline: none;
+    padding: 9px;
+    width: 100%;
+    margin-bottom: 1px;
+    border-radius: 4px;
+  }
+  
+  .testimony_general input:focus,
+  .testimony_general textarea:focus {
+    border: 0.1px solid #d01d3f;
+  }
+  
+  .testimony_submit {
+    border: none;
+    outline: none;
+    background: #e43c5c;
+    color: #fff;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: ease-in-out 0.4s;
+  }
+  
+  .testimony_submit:hover {
+    background: #ea6981;
+  }
+  
+  .tesertiony_browseFile h4 {
+    font-weight: 700;
+  }
+  
+  .testimony_social-media {
+    margin-top: 20px;
+  }
+  
+  .testimony_social-media i {
+    padding: 9px;
+    color: #fff;
+    background: #d01d3f;
+    font-size: 20px;
+  }
