@@ -184,7 +184,7 @@ const RegistrationForm = () => {
           </div>
 
           <div className="browerseFile">
-            <label>Photos (up to 4):</label>
+            <label>Upload your photo and other supporting document (up to 4):</label>
             <input
               type="file"
               multiple
@@ -222,7 +222,7 @@ const RegistrationForm = () => {
 
           <div className="QuoteBtn">
             <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Registering..." : "Register"}
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
