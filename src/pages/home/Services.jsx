@@ -1,6 +1,6 @@
-import CAD from '../../assets/images/cad traning.jpeg';
-import ArchitecturalDesign from '../../assets/images/architectural design.jpg';
-import StructuralDesign from '../../assets/images/structural.webp';
+import CAD from '../../assets/images/negotiation.webp';
+import ArchitecturalDesign from '../../assets/images/land.webp';
+import StructuralDesign from '../../assets/images/equipment.webp';
 import { Link } from 'react-router-dom';
 
 const Services = () => {
@@ -31,14 +31,14 @@ const Services = () => {
               <img src={ ArchitecturalDesign } className="img-fluid" alt="" />
             </div>
             <div className="details position-relative">
-              <div className="icon">
+              {/* <div className="icon">
                 <i className="bi bi-activity"></i>
-              </div>
-              <Link to="/services/architectural-design" className="stretched-link">
-                <h3>Architecture Design</h3>
-              </Link>
+              </div> */}
+            
+                <h3>Land Leasing for Towers</h3>
+           
               <p>
-              Architectural design is a complex process that requires technical expertise, creativity, and professional teamwork to create successful buildings.
+              We connect landowners with telecom companies seeking locations for network tower installations. Our platform ensures a seamless process from listing to agreement finalization.
               </p>
             </div>
           </div>
@@ -50,14 +50,14 @@ const Services = () => {
               <img src={ StructuralDesign } className="img-fluid" alt="" />
             </div>
             <div className="details position-relative">
-              <div className="icon">
+              {/* <div className="icon">
                 <i className="bi bi-broadcast"></i>
-              </div>
-              <Link to="/services/structural-design" className="stretched-link">
-                <h3>Structural Design</h3>
-              </Link>
+              </div> */}
+             
+                <h3>Equipment Placement Services</h3>
+            
               <p>
-              Buildings, bridges, and other structures must have sound structural design in order to be safe and stable.
+              Shop owners can find reliable providers for essential equipment such as ATMs and money machines. Boost your business with the right tools.
               </p>
             </div>
           </div>
@@ -69,14 +69,14 @@ const Services = () => {
               <img src={ CAD } className="img-fluid" alt="" />
             </div>
             <div className="details position-relative">
-              <div className="icon">
+              {/* <div className="icon">
                 <i className="bi bi-easel"></i>
-              </div>
-              <Link to="/services/cad-tranning" className="stretched-link">
-                <h3>CAD Training</h3>
-              </Link>
+              </div> */}
+              
+                <h3>Negotiation Support</h3>
+             
               <p>
-CAD software is used to create accurate designs for buildings, bridges, and other structures.
+              Simplify the negotiation process with our built-in tools and expert guidance.
               </p>
             </div>
           </div>
