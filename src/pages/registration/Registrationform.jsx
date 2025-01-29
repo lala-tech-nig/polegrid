@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { db, storage } from "../../firebase/Firebase"; // Adjust the import based on your file structure
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -6,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const RegistrationForm = () => {
+  const navigate = useNavigate(); // Initialize navigate
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,7 +17,7 @@ const RegistrationForm = () => {
     localgovernment: "",
     nearestbustop: "",
     serviceType: "telecom",
-    sex: "male"
+    sex: "male",
   });
   const [photos, setPhotos] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
@@ -73,9 +75,14 @@ const RegistrationForm = () => {
         nearestbustop: "",
         localgovernment: "",
         serviceType: "telecom",
-        sex: "male"
+        sex: "male",
       });
       setPhotos([]);
+
+      // **Navigate to /contact after successful submission**
+      setTimeout(() => {
+        navigate("/contact");
+      }, 2000); // Small delay to allow the success message to show
     } catch (error) {
       console.error("Error registering:", error);
       toast.error("An error occurred. Please try again.");
@@ -186,65 +193,50 @@ const RegistrationForm = () => {
             </div>
           </div>
 
-
-
-
-
           <div className="form1Flex">
             <div className="formFlex_i">
-            <div className="browerseFile">
-            <label>Upload your photo and other supporting document (up to 4):</label>
-            <input
-              type="file"
-              multiple
-              accept="image/*"
-              onChange={handlePhotoUpload}
-            />
-            <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-              {photos.map((photo, index) => (
-                <div key={index} style={{ position: "relative" }}>
-                  <img
-                    src={URL.createObjectURL(photo)}
-                    alt={`Preview ${index}`}
-                    style={{ width: "100px", height: "100px", objectFit: "cover" }}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => deletePhoto(index)}
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      right: 0,
-                      background: "red",
-                      color: "white",
-                      border: "none",
-                      borderRadius: "50%",
-                      cursor: "pointer",
-                    }}
-                  >
-                    X
-                  </button>
+              <div className="browerseFile">
+                <label>Upload your photo and other supporting document (up to 4):</label>
+                <input type="file" multiple accept="image/*" onChange={handlePhotoUpload} />
+                <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+                  {photos.map((photo, index) => (
+                    <div key={index} style={{ position: "relative" }}>
+                      <img
+                        src={URL.createObjectURL(photo)}
+                        alt={`Preview ${index}`}
+                        style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => deletePhoto(index)}
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          right: 0,
+                          background: "red",
+                          color: "white",
+                          border: "none",
+                          borderRadius: "50%",
+                          cursor: "pointer",
+                        }}
+                      >
+                        X
+                      </button>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-
+              </div>
             </div>
 
             <div className="formFlex_ii">
               <label>Sex</label>
-              <select
-                name="sex"
-                value={formData.sex}
-                onChange={handleChange}
-              >
+              <select name="sex" value={formData.sex} onChange={handleChange}>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
             </div>
           </div>
 
-       
           <div className="QuoteBtn">
             <button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Submitting..." : "Submit"}
