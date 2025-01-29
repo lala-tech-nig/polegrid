@@ -77,12 +77,22 @@ Polegrid Solutions may terminate these Terms and the Services at any time, with 
 Upon termination, the Client shall immediately cease using the Services.
 </li> <br />
 
-<li> <b>Governing Law and Dispute Resolution</b>
-These Terms are governed by the laws of England. Any disputes will be subject to the jurisdiction of English courts, unless otherwise required by local law.
+<li> <b>Governing Law</b>
+These Terms shall be governed by and construed in accordance with the laws of Federal Republic of Nigeria.
+Any disputes arising from these Terms shall be resolved through [Dispute Resolution Process].
 </li> <br />
-<li> Changes to Services</li>
+
+<li> <b>Changes to Terms</b>
+Polegrid Solutions reserves the right to modify these Terms at any time.
+Changes shall be effective upon posting on the Website.
+</li> <br />
+
+<li> <b>Acceptance</b>
+By registering for our Services, the Client acknowledges that they have read, understood, and agreed to be bound by these Terms.
+</li> <br />
+
 </ol>
-Vacua reserves the right to discontinue, withdraw, or modify any feature or service on the Platform at its discretion.
+
 </div>
     </section>
     <Footer /> 
