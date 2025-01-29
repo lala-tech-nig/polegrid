@@ -15,6 +15,7 @@ const RegistrationForm = () => {
     localgovernment: "",
     nearestbustop: "",
     serviceType: "telecom",
+    sex: "male"
   });
   const [photos, setPhotos] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
@@ -72,6 +73,7 @@ const RegistrationForm = () => {
         nearestbustop: "",
         localgovernment: "",
         serviceType: "telecom",
+        sex: "male"
       });
       setPhotos([]);
     } catch (error) {
@@ -87,6 +89,7 @@ const RegistrationForm = () => {
       <div className="container">
         <ToastContainer />
         <form onSubmit={handleSubmit}>
+          {/* <h1>Property Address</h1> */}
           <div className="form1Flex">
             <div className="formFlex_i">
               <label>Name:</label>
@@ -183,7 +186,13 @@ const RegistrationForm = () => {
             </div>
           </div>
 
-          <div className="browerseFile">
+
+
+
+
+          <div className="form1Flex">
+            <div className="formFlex_i">
+            <div className="browerseFile">
             <label>Upload your photo and other supporting document (up to 4):</label>
             <input
               type="file"
@@ -220,6 +229,22 @@ const RegistrationForm = () => {
             </div>
           </div>
 
+            </div>
+
+            <div className="formFlex_ii">
+              <label>Sex</label>
+              <select
+                name="sex"
+                value={formData.sex}
+                onChange={handleChange}
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+          </div>
+
+       
           <div className="QuoteBtn">
             <button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Submitting..." : "Submit"}
