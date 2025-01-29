@@ -55,6 +55,10 @@
   text-decoration: none;
 }
 
+.termsandcondtionslink {
+  margin: 10px 0 !important;
+}
+
 .footer .copyright {
   padding-top: 25px;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
