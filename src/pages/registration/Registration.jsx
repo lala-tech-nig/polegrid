@@ -14,7 +14,6 @@ const Registration = () => {
         <IntroSection />
         {/* <Paymentservice /> */}
         {/* <Pay /> */}
-        {/* <Form /> */}
         <Registrationform />
         <Footer />
     </div>

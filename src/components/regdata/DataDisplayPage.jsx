@@ -64,6 +64,7 @@ const DataDisplayPage = () => {
                 <p>Location: {registration.location}</p>
                 <p>State: {registration.state}</p>
                 <p>Service Type: {registration.serviceType}</p>
+                <p>Sex: {registration.sex}</p>
 
                 {/* Image Preview */}
                 <div className="photo-gallery reg-fetchImg flex space-x-2 mt-2">
@@ -92,14 +93,14 @@ const DataDisplayPage = () => {
       </div>
 
       {/* Image Preview Modal */}
-      {selectedImage && (
+      {/* {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center"
           onClick={() => setSelectedImage(null)}
         >
           <img src={selectedImage} alt="Preview" className="max-w-2xl max-h-[90vh] rounded-lg shadow-lg" />
         </div>
-      )}
+      )} */}
     </section>
   );
 };

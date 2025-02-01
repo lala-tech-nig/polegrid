@@ -257,10 +257,6 @@
   color: blue;
 }
 
-.paymentform {
-  
-}
-
 .paymentformchild{
   display: flex;
   align-items: center;
@@ -273,3 +269,4 @@
   outline: none;
   padding: 10px;
 }
+

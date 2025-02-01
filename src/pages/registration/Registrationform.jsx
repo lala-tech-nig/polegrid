@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { db, storage } from "../../firebase/Firebase"; // Adjust the import based on your file structure
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
+import { db, storage } from "../../firebase/Firebase"; 
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { ToastContainer, toast } from "react-toastify";
