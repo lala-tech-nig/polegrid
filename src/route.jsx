@@ -25,6 +25,8 @@ import PropertyDetails from "./pages/property/propertyDetails.jsx/PropertyDetail
 import Testimony from "./pages/testimony/Testimony";
 import Registration from "./pages/registration/Registration";
 import TermsandConditions from "./pages/termsandcondtions/TermsandConditions";
+import DataDisplayPage from "./components/regdata/DataDisplayPage";
+import RegData from "./components/regdata/RegData";
 
 export const route = createHashRouter([
     {
@@ -100,6 +102,10 @@ export const route = createHashRouter([
       {
         path: '/registration',
         element: <Registration />
+      },
+      {
+        path: '/data-display',
+        element: <RegData />
       }
      
 ]);
