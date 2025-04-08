@@ -39,16 +39,36 @@ const faqData = [
     answer: "The installation process typically takes several months, depending on factors like site acquisition, planning permission, and construction.",
   },
   {
-    question: "What safety measures are in place for telecoms masts?",
-    answer: "Telecoms masts are designed and installed with safety in mind, adhering to strict regulations and guidelines to protect people and the environment.",
-  },
-  {
     question: "Can I still use my land after the telecoms mast is installed?",
     answer: "Yes, landowners can continue using their land as usual, with minimal restrictions, once the installation is complete.",
   },
   {
     question: "What kind of support and maintenance can I expect from Polegrid Solutions?",
     answer: "We provide ongoing support and ensure that telecoms companies maintain the installations, minimizing disruptions to landowners.",
+  },
+  {
+    question: "As a landlord, what is the minimum space requirement for telecom towers?",
+    answer: "The minimum space requirement for telecom towers is 20 feet x 20 feet.",
+  },
+  {
+    question: "How do I get started with Polegrid?",
+    answer: "Simply register your property on our platform by providing basic information. Our team will guide you through the inspection, agreement, and installation process, ensuring a smooth experience from start to finish.Registration and consultation fee N15,500",
+  },
+  {
+    question: "How long does the registration process take?",
+    answer: "Registration typically takes 3-5 business days, after which we will contact you.",
+  },
+  {
+    question: " How much can I earn from renting my land?",
+    answer: "Earnings vary depending on the location and size of the tower, but you can with earn above N2 million per year.",
+  },
+  {
+    question: "Is there a success fee, and if so, how much?",
+    answer: "Yes, there is a success fee of 5%.",
+  },
+  {
+    question: "What supporting documents do I need to provide and upload?",
+    answer: ". A valid ID card, passport, or a clear picture of yourself.One supporting document, which can be a utility bill, land documents (e.g., certificate of occupancy, deed of assignment, land receipt, land survey, letter of allocation), a property photo, land photo, or any other document related to the selected service",
   },
  
 ];
