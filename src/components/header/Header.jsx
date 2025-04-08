@@ -33,16 +33,20 @@ const Header = ({ Toggle }) => {
     <li className="dropdown"><NavLink to="/about"><span>About</span> </NavLink>
     </li>
 
-    <li className="dropdown"><NavLink to="/services"><span>Service</span></NavLink>
-    </li> 
+    <li>
+    <NavLink className="nav-link request_a_prayer" to="/services">Service</NavLink>
+    </li>
     
     <li>
     <NavLink className="nav-link " to="/contact">Contact</NavLink>
     </li>
 
-    <li>
-    <NavLink className="nav-link request_a_prayer" to="/registration">Registration</NavLink>
-    </li>
+    <li className="dropdown"><NavLink to="/registration/landlord"><span>Registration</span><i class="bi bi-chevron-down toggle-dropdown"></i></NavLink>
+    <ul>
+                  <li><NavLink to="/registration/landlord">Landlord</NavLink></li>
+                  <li><NavLink to="/registration/organization">Organization</NavLink></li>
+                </ul>
+    </li> 
     
     </ul>
     <div onClick={navToggle} className={toggleIcon}>

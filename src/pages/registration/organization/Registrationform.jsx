@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import { db, storage } from "../../firebase/Firebase"; 
+import { db, storage } from "../../../firebase/Firebase"; 
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { ToastContainer, toast } from "react-toastify";
@@ -57,7 +57,7 @@ const RegistrationForm = () => {
       );
 
       // Save form data to Firestore
-      await addDoc(collection(db, "landlordregistrations"), {
+      await addDoc(collection(db, "organizationregistrations"), {
         ...formData,
         photos: photoUrls,
       });
@@ -81,7 +81,7 @@ const RegistrationForm = () => {
 
       // **Navigate to /contact after successful submission**
       setTimeout(() => {
-        navigate("/contact");
+        navigate("/registration/organization");
       }, 2000); // Small delay to allow the success message to show
     } catch (error) {
       console.error("Error registering:", error);

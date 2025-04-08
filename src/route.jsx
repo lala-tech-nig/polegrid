@@ -27,6 +27,7 @@ import Registration from "./pages/registration/Registration";
 import TermsandConditions from "./pages/termsandcondtions/TermsandConditions";
 import DataDisplayPage from "./components/regdata/DataDisplayPage";
 import RegData from "./components/regdata/RegData";
+import Organiation from "./pages/registration/organization/Organiation";
 
 export const route = createHashRouter([
     {
@@ -100,8 +101,12 @@ export const route = createHashRouter([
         element: <PropertyAdmin />
       },
       {
-        path: '/registration',
+        path: '/registration/landlord',
         element: <Registration />
+      },
+      {
+        path: '/registration/organization',
+        element: <Organiation />
       },
       {
         path: '/data-display',
