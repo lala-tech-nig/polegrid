@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SectionFooter from "./SectionFooter";
+// import SectionFooter from "./SectionFooter";
 import './footer.css';
 
 
@@ -13,8 +13,8 @@ const Footer = () => {
       <Link className="termsandcondtionslink" to='/termsandconditions'>Terms and Conditions</Link>
       <div className="social-links d-flex justify-content-center">
         {/* <a href=""><i className="bi bi-twitter-x"></i></a> */}
-        <a href=""><i className="bi bi-facebook"></i></a>
-        <a href=""><i className="bi bi-instagram"></i></a>
+        <a href="https://x.com/polegrid" target="_blank"><i className="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/_polegrid/" target="_blank"><i className="bi bi-instagram"></i></a>
         {/* <a href=""><i className="bi bi-skype"></i></a> */}
         {/* <a href=""><i className="bi bi-linkedin"></i></a> */}
       </div>
@@ -22,10 +22,10 @@ const Footer = () => {
         <div className="copyright">
           <span>Copyright</span> <strong className="px-1 sitename">PoleGrid</strong> <span>All Rights Reserved</span>
         </div>
-        <div className="credits">
+        {/* <div className="credits">
           
           Powered by <a href="develop-iq.org">Develop-IQ Technologies</a>
-        </div>
+        </div> */}
       </div>
     </div>
   </footer>

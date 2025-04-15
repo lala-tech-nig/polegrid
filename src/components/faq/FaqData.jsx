@@ -45,11 +45,7 @@ const faqData = [
   {
     question: "Can I still use my land after the telecoms mast is installed?",
     answer: "Yes, landowners can continue using their land as usual, with minimal restrictions, once the installation is complete.",
-  },
-  {
-    question: "What kind of support and maintenance can I expect from Polegrid Solutions?",
-    answer: "We provide ongoing support and ensure that telecoms companies maintain the installations, minimizing disruptions to landowners.",
-  },
+  }
  
 ];
 

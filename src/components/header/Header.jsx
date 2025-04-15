@@ -35,6 +35,9 @@ const Header = ({ Toggle }) => {
 
     <li className="dropdown"><NavLink to="/services"><span>Service</span></NavLink>
     </li> 
+
+    <li className="dropdown"><NavLink to="/blog"><span>Blog</span></NavLink>
+    </li> 
     
     <li>
     <NavLink className="nav-link " to="/contact">Contact</NavLink>

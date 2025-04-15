@@ -7,6 +7,7 @@ import Cta from "./Cta";
 import Hero from "./hero";
 import './home.css';
 import Homeabout from "./Homeabout";
+import Partners from "./Partners";
 import Properties from "./Properties";
 import Services from "./Services";
 import ServiceTest from "./ServiceTest";
@@ -20,6 +21,7 @@ const Home = () => {
         {/* <Homeabout /> */}
         {/* <ServiceTest /> */}
         <Services />
+        <Partners />
         <Clients />
         {/* <Properties /> */}
         <Testimony />

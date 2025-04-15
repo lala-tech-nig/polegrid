@@ -53,6 +53,7 @@ const Hero = () => {
               <h2 data-aos="fade-down">Welcome to <span> <br />PoleGrid</span></h2>
               <p data-aos="fade-up">
               Your trusted platform dedicated to bridging the gap between landowners and telecom companies.
+             {/* Your Telecom Site Appreciation and Leasing */}
               </p>
               <Link data-aos="fade-up" data-aos-delay="200" to="/about" className="btn-get-started">Know more about us!</Link>
             </div>
