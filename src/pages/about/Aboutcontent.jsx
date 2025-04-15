@@ -17,15 +17,31 @@ const Aboutcontent = () => {
                             {/* <h4>Est 1988</h4> */}
                             <h3>What is PoleGrid?</h3>
                             <p>
-                            At PoleGrid, we are committed to creating seamless connections between landowners, telecom providers, and shop owners. Our mission is to simplify complex negotiations and foster mutually beneficial partnerships through a transparent and efficient platform.
+                            At Polegrid Solutions, we specialize in creating connections that drive growth and development. Our expertise spans three key areas:
+                            </p>
+                            <p>
+                            <b>Telecom Site Acquisition</b>: We bridge the gap between landowners, telecom companies, and tower companies, facilitating seamless acquisitions of prime land and locations for telecom tower installations.
+
+                            </p>
+                            <p>
+                            <b>Financial Services Connectivity</b>: We link businesses, such as shops and supermarkets, with financial institutions to facilitate ATMs (money machines)installations and access other financial services, enhancing their financial development.
+
+
+                            </p>
+                            <p>
+                            <b>Real Estate Services</b>: Our comprehensive real estate solutions empower individuals and organizations to acquire, sell, or manage properties efficiently.
+
                             </p>
                             <ul>
-                                <li><i className="bi bi-check-circle"></i> <span><b>Our Vision:</b> To be the leading platform for property and equipment connection services.</span></li>
-                                <li><i className="bi bi-check-circle"></i> <span><b>Our Mission:</b> To empower landowners, telecom providers, and shop owners through reliable and innovative solutions.</span></li>
+                                <li><i className="bi bi-check-circle"></i> <span><b>Our Vision:</b> Our vision is to be the leading platform solutions provider for property and equipment connection services empowering individuals, businesses, and communities to thrive in a rapidly evolving world.</span></li>
+                                <li><i className="bi bi-check-circle"></i> <span><b>Our Mission:</b> To empower Landowners , telecom companies , tower companies and businesses through reliable and innovative solutions.</span></li>
                                
                             </ul>
                             <p>
-                            With years of experience in the industry, we understand the challenges and opportunities in connecting people and businesses. That’s why we provide expert support, reliable resources, and innovative tools to ensure success for all parties involved.
+                            As a connectivity solutions provider, we foster partnerships between landowners, telecom companies, financial institutions, and property owners. With years of industry experience, we understand the challenges and opportunities in connecting people and businesses.
+
+<br /><br />Our team provides expert support, reliable resources, and innovative tools to ensure success for all parties involved.
+
                             </p>
 
                             {/* <div className="watch-video d-flex align-items-center position-relative">

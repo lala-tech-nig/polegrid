@@ -24,7 +24,7 @@ const Header = ({ Toggle }) => {
      <NavLink to="/"><img src={ Logo } className="logoimg" alt="Daytopia logo"/></NavLink>
      {/* <h2>PoleGrid</h2> */}
     </div>
-    <nav id="navbar" className="navbar order-last order-md-0">
+    <nav id="navbar" className="navbar orßder-last order-md-0">
     <ul className={active}>
     <li>
     <NavLink className="nav-link" to="/">Home</NavLink>
@@ -43,9 +43,12 @@ const Header = ({ Toggle }) => {
     <NavLink className="nav-link " to="/contact">Contact</NavLink>
     </li>
 
-    <li>
-    <NavLink className="nav-link request_a_prayer" to="/registration">Registration</NavLink>
-    </li>
+    <li className="dropdown"><NavLink to="/registration/landlord"><span>Registration</span><i class="bi bi-chevron-down toggle-dropdown"></i></NavLink>
+    <ul>
+                  <li><NavLink to="/registration/landlord">Landlord</NavLink></li>
+                  <li><NavLink to="/registration/organization">Organization</NavLink></li>
+                </ul>
+    </li> 
     
     </ul>
     <div onClick={navToggle} className={toggleIcon}>
