@@ -13,9 +13,13 @@ const RegistrationForm = () => {
     email: "",
     number: "",
     location: "",
-    state: "",
     localgovernment: "",
+    Designation: "",
+    contactpersonname: "",
+    contactpersonemail: "",
+    contactpersonnumber: "",
     nearestbustop: "",
+    registrationProcess: "Partnership",
     serviceType: "telecom",
     sex: "male",
   });
@@ -71,10 +75,14 @@ const RegistrationForm = () => {
         email: "",
         number: "",
         location: "",
-        state: "",
         nearestbustop: "",
+        contactpersonnumber: "",
+        contactpersonname: "",
+        contactpersonemail: "",
+        Designation: "",
         localgovernment: "",
         serviceType: "telecom",
+        registrationProcess: "Partnership",
         sex: "male",
       });
       setPhotos([]);
@@ -99,7 +107,7 @@ const RegistrationForm = () => {
           {/* <h1>Property Address</h1> */}
           <div className="form1Flex">
             <div className="formFlex_i">
-              <label>Name:</label>
+              <label>Organization Name:</label>
               <input
                 type="text"
                 name="name"
@@ -110,7 +118,7 @@ const RegistrationForm = () => {
             </div>
 
             <div className="formFlex_ii">
-              <label>Email (optional):</label>
+              <label>Email Address:</label>
               <input
                 type="email"
                 name="email"
@@ -122,7 +130,7 @@ const RegistrationForm = () => {
 
           <div className="form1Flex">
             <div className="formFlex_i">
-              <label>Number:</label>
+              <label>Phone Number:</label>
               <input
                 type="text"
                 name="number"
@@ -146,10 +154,10 @@ const RegistrationForm = () => {
 
           <div className="form1Flex">
             <div className="formFlex_i">
-              <label>Nearest Bus stop:</label>
+              <label>Contact Person(name)</label>
               <input
                 type="text"
-                name="nearestbustop"
+                name="contactpersonname"
                 value={formData.nearestbustop}
                 onChange={handleChange}
                 required
@@ -157,10 +165,10 @@ const RegistrationForm = () => {
             </div>
 
             <div className="formFlex_ii">
-              <label>Local Government:</label>
+              <label>Contact Person (email):</label>
               <input
                 type="text"
-                name="localgovernment"
+                name="contactpersonemai"
                 value={formData.localgovernment}
                 onChange={handleChange}
                 required
@@ -170,10 +178,10 @@ const RegistrationForm = () => {
 
           <div className="form1Flex">
             <div className="formFlex_i">
-              <label>State:</label>
+              <label>Contact Person(Phone Number):</label>
               <input
                 type="text"
-                name="state"
+                name="contactpersonnumber"
                 value={formData.state}
                 onChange={handleChange}
                 required
@@ -181,19 +189,50 @@ const RegistrationForm = () => {
             </div>
 
             <div className="formFlex_ii">
-              <label>Service Type:</label>
+              <label>Organization Type:</label>
               <select
                 name="serviceType"
                 value={formData.serviceType}
                 onChange={handleChange}
               >
-                <option value="telecom">Telecom Service</option>
-                <option value="moneyMachine">Money Machine</option>
+                <option value="telecom">Telecom Company</option>
+                <option value="towerco">Towerco</option>
+                <option value="Realestate">Real Estate</option>
+                <option value="Financial">Financial Institution</option>
+                {/* <option value="others">Others</option> */}
               </select>
             </div>
           </div>
 
           <div className="form1Flex">
+            <div className="formFlex_i">
+              <label>Designation:</label>
+              <textarea
+                type="text"
+                name="Designation"
+                value={formData.state}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="formFlex_ii">
+              <label>Registration Process:</label>
+              <select
+                name="registrationProcess"
+                value={formData.serviceType}
+                onChange={handleChange}
+              >
+                <option value="Partnership">Partnership/Collaboration</option>
+                <option value="Service">Service Provision</option>
+                <option value="Property">Property Listing</option>
+                <option value="Investment">Investment Opportunities</option>
+                {/* <option value="others">Others</option> */}
+              </select>
+            </div>
+          </div>
+
+          {/* <div className="form1Flex">
             <div className="formFlex_i">
               <div className="browerseFile">
                 <label>Upload your photo and other supporting document (up to 4):</label>
@@ -235,7 +274,7 @@ const RegistrationForm = () => {
                 <option value="female">Female</option>
               </select>
             </div>
-          </div>
+          </div> */}
 
           <div className="QuoteBtn">
             <button type="submit" disabled={isSubmitting}>
