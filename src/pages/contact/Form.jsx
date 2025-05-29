@@ -92,7 +92,7 @@ const Form = () => {
                       <span className="color-a">contact@polegrid.com</span>
                     </p>
                     <p className="mb-1">Phone.
-                      <span className="color-a">+54 356 945234</span>
+                      <span className="color-a">+234 701 816 2166</span>
                     </p>
                   </div>
                 </div>

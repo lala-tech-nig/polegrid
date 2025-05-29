@@ -132,7 +132,7 @@ const RegistrationForm = () => {
             <div className="formFlex_i">
               <label>Phone Number:</label>
               <input
-                type="text"
+                type="number"
                 name="number"
                 value={formData.number}
                 onChange={handleChange}
@@ -141,7 +141,7 @@ const RegistrationForm = () => {
             </div>
 
             <div className="formFlex_ii">
-              <label>Address:</label>
+              <label>Property Address:</label>
               <input
                 type="text"
                 name="location"
