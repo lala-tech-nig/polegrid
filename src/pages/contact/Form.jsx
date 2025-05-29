@@ -89,7 +89,7 @@ const Form = () => {
                   </div>
                   <div className="icon-box-content">
                     <p className="mb-1">Email.
-                      <span className="color-a">contact@example.com</span>
+                      <span className="color-a">contact@polegrid.com</span>
                     </p>
                     <p className="mb-1">Phone.
                       <span className="color-a">+54 356 945234</span>
@@ -107,8 +107,8 @@ const Form = () => {
                   </div>
                   <div className="icon-box-content">
                     <p className="mb-1">
-                      Manhattan, Nueva York 10036,
-                      <br /> EE. UU.
+                    Block 4A,  Pinnacle Horizon Estate, Ibeju Lekki,
+                      <br /> Lagos. Nigeria.
                     </p>
                   </div>
                 </div>
@@ -124,26 +124,26 @@ const Form = () => {
                   <div className="icon-box-content">
                     <div className="socials-footer">
                       <ul className="list-inline">
-                        <li className="list-inline-item">
+                        {/* <li className="list-inline-item">
                           <a href="#" className="link-one">
                             <i className="bi bi-facebook" aria-hidden="true"></i>
                           </a>
-                        </li>
+                        </li> */}
                         <li className="list-inline-item">
-                          <a href="#" className="link-one">
+                          <a href="https://x.com/polegrid" target="_blank" className="link-one">
                             <i className="bi bi-twitter" aria-hidden="true"></i>
                           </a>
                         </li>
                         <li className="list-inline-item">
-                          <a href="#" className="link-one">
+                          <a href="https://www.instagram.com/_polegrid/" target="_blank" className="link-one">
                             <i className="bi bi-instagram" aria-hidden="true"></i>
                           </a>
                         </li>
-                        <li className="list-inline-item">
+                        {/* <li className="list-inline-item">
                           <a href="#" className="link-one">
                             <i className="bi bi-linkedin" aria-hidden="true"></i>
                           </a>
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
                   </div>
