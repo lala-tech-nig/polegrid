@@ -187,8 +187,8 @@ const RegistrationForm = () => {
                 value={formData.serviceType}
                 onChange={handleChange}
               >
-                <option value="telecom">Telecom Service</option>
-                <option value="moneyMachine">Money Machine</option>
+                <option value="telecom">Telecom installation</option>
+                <option value="moneyMachine">ATM installation</option>
               </select>
             </div>
           </div>

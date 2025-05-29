@@ -199,7 +199,11 @@ const RegistrationForm = () => {
                 <option value="towerco">Towerco</option>
                 <option value="Realestate">Real Estate</option>
                 <option value="Financial">Financial Institution</option>
-                {/* <option value="others">Others</option> */}
+                <option value="Agents">Agents</option>
+                <option value="Energy">Energy companies </option>
+                <option value="Infrastructure">Infrastructure companies </option>
+                <option value="Government">Government Agencies </option>
+                <option value="others">Others</option>
               </select>
             </div>
           </div>
