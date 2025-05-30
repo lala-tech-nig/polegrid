@@ -122,15 +122,15 @@ const BlogAdmin = () => {
   return (
     <div>
       <div className="d-flex">
-        <div className={toggle ? "d-none" : "w-auto position-fixed"}>
+        {/* <div className={toggle ? "d-none" : "w-auto position-fixed"}>
           <Sidebar />
-        </div>
+        </div> */}
 
-        <div className={toggle ? "d-none" : "invisible"}>
+        {/* <div className={toggle ? "d-none" : "invisible"}>
           <Sidebar />
-        </div>
+        </div> */}
 
-        <div className="col">
+        <div className="col container">
           <Navbar Toggle={Toggle} />
           <div className="admin">
             <h1>
@@ -152,7 +152,7 @@ const BlogAdmin = () => {
               <img
                 src={URL.createObjectURL(image)}
                 alt="Selected"
-                className="selected-image"
+                className="selected-image-admin"
               />
             )}
             <input
