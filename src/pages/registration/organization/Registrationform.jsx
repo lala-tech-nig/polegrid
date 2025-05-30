@@ -41,35 +41,21 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (photos.length === 0) {
-      toast.error("Please upload at least one photo.");
-      return;
-    }
-
-    setIsSubmitting(true); // Disable the button and show ongoing feedback
+  
+    setIsSubmitting(true);
     toast.info("Registering...");
-
+  
     try {
-      // Upload photos and get URLs
-      const photoUrls = await Promise.all(
-        photos.map(async (photo) => {
-          const storageRef = ref(storage, `photos/${photo.name}`);
-          const uploadTask = await uploadBytesResumable(storageRef, photo);
-          return await getDownloadURL(uploadTask.ref);
-        })
-      );
-
-      // Save form data to Firestore
+      // If you reintroduce photo upload later, use the logic here.
+      const photoUrls = [];
+  
       await addDoc(collection(db, "organizationregistrations"), {
         ...formData,
         photos: photoUrls,
       });
-
-      // Show success toast
+  
       toast.success("Registration successful!");
-
-      // Reset form data and photos
+  
       setFormData({
         name: "",
         email: "",
@@ -86,18 +72,18 @@ const RegistrationForm = () => {
         sex: "male",
       });
       setPhotos([]);
-
-      // **Navigate to /contact after successful submission**
+  
       setTimeout(() => {
         navigate("/registration/organization");
-      }, 2000); // Small delay to allow the success message to show
+      }, 2000);
     } catch (error) {
       console.error("Error registering:", error);
       toast.error("An error occurred. Please try again.");
     } finally {
-      setIsSubmitting(false); // Re-enable the button
+      setIsSubmitting(false);
     }
   };
+  
 
   return (
     <section id="get-started" className="get-started section-bg">
@@ -141,7 +127,7 @@ const RegistrationForm = () => {
             </div>
 
             <div className="formFlex_ii">
-              <label>Property Address:</label>
+              <label> Address:</label>
               <input
                 type="text"
                 name="location"
@@ -155,24 +141,24 @@ const RegistrationForm = () => {
           <div className="form1Flex">
             <div className="formFlex_i">
               <label>Contact Person(name)</label>
-              <input
-                type="text"
-                name="contactpersonname"
-                value={formData.nearestbustop}
-                onChange={handleChange}
-                required
-              />
+             <input
+             type="text"
+             name="contactpersonname"
+             value={formData.contactpersonname}
+             onChange={handleChange}
+           />
+           
             </div>
 
             <div className="formFlex_ii">
               <label>Contact Person (email):</label>
               <input
-                type="text"
-                name="contactpersonemai"
-                value={formData.localgovernment}
-                onChange={handleChange}
-                required
-              />
+  type="email"
+  name="contactpersonemail"
+  value={formData.contactpersonemail}
+  onChange={handleChange}
+/>
+
             </div>
           </div>
 
@@ -180,12 +166,12 @@ const RegistrationForm = () => {
             <div className="formFlex_i">
               <label>Contact Person(Phone Number):</label>
               <input
-                type="text"
-                name="contactpersonnumber"
-                value={formData.state}
-                onChange={handleChange}
-                required
-              />
+  type="text"
+  name="contactpersonnumber"
+  value={formData.contactpersonnumber}
+  onChange={handleChange}
+/>
+
             </div>
 
             <div className="formFlex_ii">
@@ -212,21 +198,20 @@ const RegistrationForm = () => {
             <div className="formFlex_i">
               <label>Designation:</label>
               <textarea
-                type="text"
-                name="Designation"
-                value={formData.state}
-                onChange={handleChange}
-                required
-              />
+          name="Designation"
+           value={formData.Designation}
+           onChange={handleChange}
+           />
+
             </div>
 
             <div className="formFlex_ii">
               <label>Registration Process:</label>
-              <select
-                name="registrationProcess"
-                value={formData.serviceType}
-                onChange={handleChange}
-              >
+                <select
+            name="registrationProcess"
+              value={formData.registrationProcess}
+             onChange={handleChange}
+             >
                 <option value="Partnership">Partnership/Collaboration</option>
                 <option value="Service">Service Provision</option>
                 <option value="Property">Property Listing</option>

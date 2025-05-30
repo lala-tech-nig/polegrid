@@ -28,6 +28,8 @@ import TermsandConditions from "./pages/termsandcondtions/TermsandConditions";
 import DataDisplayPage from "./components/regdata/DataDisplayPage";
 import RegData from "./components/regdata/RegData";
 import Organiation from "./pages/registration/organization/Organiation";
+import OrgainizationAdmin from "./admin/organization/OrgainizationAdmin";
+import LandlordAdmin from "./admin/landlord/LandlordAdmin";
 
 export const route = createHashRouter([
     {
@@ -87,6 +89,14 @@ export const route = createHashRouter([
       {
         path: '/admin/Blog',
         element: <BlogAdmin />
+      },
+      {
+        path: '/admin/organization',
+        element: <OrgainizationAdmin />
+      },
+      {
+        path: '/admin/landlord',
+        element: <LandlordAdmin />
       },
       {
         path: '/admin/gallery',
