@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const RegistrationForm = () => {
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,53 +19,65 @@ const RegistrationForm = () => {
     serviceType: "telecom",
     sex: "male",
   });
-  const [photos, setPhotos] = useState([]);
-  const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
+
+  const [photoFile, setPhotoFile] = useState(null);
+  const [documentFiles, setDocumentFiles] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handlePhotoUpload = (e) => {
-    const files = Array.from(e.target.files);
-    setPhotos((prev) => [...prev, ...files].slice(0, 4)); // Limit to 4 photos
+    setPhotoFile(e.target.files[0]);
   };
 
-  const deletePhoto = (index) => {
-    setPhotos((prev) => prev.filter((_, i) => i !== index));
+  const handleDocumentsUpload = (e) => {
+    const files = Array.from(e.target.files);
+    setDocumentFiles(files.slice(0, 4));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (photos.length === 0) {
-      toast.error("Please upload at least one photo.");
+    if (!photoFile) {
+      toast.error("Please upload a personal photo (ID or passport).");
       return;
     }
 
-    setIsSubmitting(true); // Disable the button and show ongoing feedback
+    if (documentFiles.length === 0) {
+      toast.error("Please upload at least one supporting document.");
+      return;
+    }
+
+    setIsSubmitting(true);
     toast.info("Registering...");
 
     try {
-      // Upload photos and get URLs
-      const photoUrls = await Promise.all(
-        photos.map(async (photo) => {
-          const storageRef = ref(storage, `photos/${photo.name}`);
-          const uploadTask = await uploadBytesResumable(storageRef, photo);
-          return await getDownloadURL(uploadTask.ref);
+      // Upload photo
+      const photoRef = ref(storage, `photos/${photoFile.name}`);
+      const photoUpload = await uploadBytesResumable(photoRef, photoFile);
+      const photoUrl = await getDownloadURL(photoUpload.ref);
+
+      // Upload documents
+      const documentUrls = await Promise.all(
+        documentFiles.map(async (doc) => {
+          const docRef = ref(storage, `documents/${doc.name}`);
+          const docUpload = await uploadBytesResumable(docRef, doc);
+          return await getDownloadURL(docUpload.ref);
         })
       );
 
-      // Save form data to Firestore
+      // Save to Firestore
       await addDoc(collection(db, "landlordregistrations"), {
         ...formData,
-        photos: photoUrls,
+        photo: photoUrl,
+        documents: documentUrls,
       });
 
-      // Show success toast
       toast.success("Registration successful!");
 
-      // Reset form data and photos
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -77,17 +89,17 @@ const RegistrationForm = () => {
         serviceType: "telecom",
         sex: "male",
       });
-      setPhotos([]);
+      setPhotoFile(null);
+      setDocumentFiles([]);
 
-      // **Navigate to /contact after successful submission**
       setTimeout(() => {
         navigate("/contact");
-      }, 2000); // Small delay to allow the success message to show
+      }, 2000);
     } catch (error) {
       console.error("Error registering:", error);
       toast.error("An error occurred. Please try again.");
     } finally {
-      setIsSubmitting(false); // Re-enable the button
+      setIsSubmitting(false);
     }
   };
 
@@ -96,139 +108,98 @@ const RegistrationForm = () => {
       <div className="container">
         <ToastContainer />
         <form onSubmit={handleSubmit}>
-          {/* <h1>Property Address</h1> */}
           <div className="form1Flex">
             <div className="formFlex_i">
               <label>Name:</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+              <input type="text" name="name" value={formData.name} onChange={handleChange} required />
             </div>
 
             <div className="formFlex_ii">
               <label>Email (optional):</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
+              <input type="email" name="email" value={formData.email} onChange={handleChange} />
             </div>
           </div>
 
           <div className="form1Flex">
             <div className="formFlex_i">
               <label>Phone Number:</label>
-              <input
-                type="number"
-                name="number"
-                value={formData.number}
-                onChange={handleChange}
-                required
-              />
+              <input type="number" name="number" value={formData.number} onChange={handleChange} required />
             </div>
 
             <div className="formFlex_ii">
               <label>Property Address:</label>
-              <input
-                type="text"
-                name="location"
-                value={formData.location}
-                onChange={handleChange}
-                required
-              />
+              <input type="text" name="location" value={formData.location} onChange={handleChange} required />
             </div>
           </div>
 
           <div className="form1Flex">
             <div className="formFlex_i">
               <label>Nearest Bus stop:</label>
-              <input
-                type="text"
-                name="nearestbustop"
-                value={formData.nearestbustop}
-                onChange={handleChange}
-                required
-              />
+              <input type="text" name="nearestbustop" value={formData.nearestbustop} onChange={handleChange} required />
             </div>
 
             <div className="formFlex_ii">
               <label>Local Government:</label>
-              <input
-                type="text"
-                name="localgovernment"
-                value={formData.localgovernment}
-                onChange={handleChange}
-                required
-              />
+              <input type="text" name="localgovernment" value={formData.localgovernment} onChange={handleChange} required />
             </div>
           </div>
 
           <div className="form1Flex">
             <div className="formFlex_i">
               <label>State:</label>
-              <input
-                type="text"
-                name="state"
-                value={formData.state}
-                onChange={handleChange}
-                required
-              />
+              <input type="text" name="state" value={formData.state} onChange={handleChange} required />
             </div>
 
             <div className="formFlex_ii">
               <label>Service Type:</label>
-              <select
-                name="serviceType"
-                value={formData.serviceType}
-                onChange={handleChange}
-              >
+              <select name="serviceType" value={formData.serviceType} onChange={handleChange}>
                 <option value="telecom">Telecom installation</option>
                 <option value="moneyMachine">ATM installation</option>
               </select>
             </div>
           </div>
 
+          {/* Separated File Uploads */}
           <div className="form1Flex">
             <div className="formFlex_i">
-              <div className="browerseFile">
-                <label>Upload your photo and other supporting document (up to 4):</label>
-                <input type="file" multiple accept="image/*" onChange={handlePhotoUpload} />
-                <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-                  {photos.map((photo, index) => (
-                    <div key={index} style={{ position: "relative" }}>
-                      <img
-                        src={URL.createObjectURL(photo)}
-                        alt={`Preview ${index}`}
-                        style={{ width: "100px", height: "100px", objectFit: "cover" }}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => deletePhoto(index)}
-                        style={{
-                          position: "absolute",
-                          top: 0,
-                          right: 0,
-                          background: "red",
-                          color: "white",
-                          border: "none",
-                          borderRadius: "50%",
-                          cursor: "pointer",
-                        }}
-                      >
-                        X
-                      </button>
-                    </div>
-                  ))}
+              <label>
+                Upload your photo: <br />
+                <small>A valid ID card or passport, or a clear picture of yourself.</small>
+              </label>
+              <input type="file" accept="image/*" onChange={handlePhotoUpload} />
+              {photoFile && (
+                <div style={{ marginTop: "10px" }}>
+                  <img
+                    src={URL.createObjectURL(photoFile)}
+                    alt="Photo Preview"
+                    style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                  />
                 </div>
-              </div>
+              )}
             </div>
 
             <div className="formFlex_ii">
+              <label>
+                Upload at least one supporting document: <br />
+                <small>Utility bill, land documents (e.g., certificate of occupancy, deed of assignment), or property/land photo.</small>
+              </label>
+              <input type="file" multiple accept="image/*" onChange={handleDocumentsUpload} />
+              <div style={{ display: "flex", gap: "10px", marginTop: "10px", flexWrap: "wrap" }}>
+                {documentFiles.map((doc, index) => (
+                  <div key={index} style={{ position: "relative" }}>
+                    <img
+                      src={URL.createObjectURL(doc)}
+                      alt={`Doc ${index}`}
+                      style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="form1Flex">
+            <div className="formFlex_i">
               <label>Sex</label>
               <select name="sex" value={formData.sex} onChange={handleChange}>
                 <option value="male">Male</option>
