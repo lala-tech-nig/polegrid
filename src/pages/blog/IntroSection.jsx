@@ -7,7 +7,7 @@ const IntroSection = () => {
         <div className="row">
           <div className="col-md-12 col-lg-8">
             <div className="title-single-box">
-              <h1 className="title-single">Our updates</h1>
+              <h1 className="title-single">Our Blogs</h1>
               {/* <span className="color-text-a">Grid News</span> */}
             </div>
           </div>

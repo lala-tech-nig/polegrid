@@ -33,7 +33,7 @@ const Navbar = ({Toggle}) => {
                 <div className=" navbar-collapse">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 
-                   <Logout />
+                   {/* <Logout /> */}
                     
                     </ul>
                  

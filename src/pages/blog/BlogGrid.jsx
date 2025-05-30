@@ -63,7 +63,7 @@ const BlogGrid = () => {
                     dangerouslySetInnerHTML={{ __html: post.content.slice(0,200) }}
                   /> */}
                 <div className="card-date">
-                  <span className="date-b">18 Sep. 2017</span>
+                  {/* <span className="date-b">18 Sep. 2017</span> */}
                 </div>
               </div>
             </div>

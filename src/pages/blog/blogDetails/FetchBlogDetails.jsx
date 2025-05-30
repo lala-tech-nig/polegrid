@@ -54,10 +54,10 @@ const FetchBlogDetails = () => {
                 <strong>Category: </strong>
                 <span className="color-text-a">Blog</span>
               </li>
-              <li className="list-inline-item">
+              {/* <li className="list-inline-item">
                 <strong>Date: </strong>
                 <span className="color-text-a">19 Apr. 2017</span>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="post-content color-text-a">

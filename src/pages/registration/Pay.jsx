@@ -34,7 +34,7 @@ const Pay = () => {
     }
 
     window.FlutterwaveCheckout({
-      public_key: "FLWPUBK-012ad42fcbf7c66468ebd72625a04ad3-X", // Replace with your public key
+      public_key: "FLWPUBK_TEST-b9bce3b0dad14eece267381ca5e6de08-X", // Replace with your public key
       tx_ref: `tx-${Date.now()}`,
       amount: 15499, // Amount to be paid in Naira
       currency: "NGN",

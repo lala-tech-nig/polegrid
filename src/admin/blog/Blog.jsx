@@ -16,7 +16,7 @@ import {
 import { db, storage } from "../../firebase/Firebase";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import "../admin.css";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -29,15 +29,15 @@ const BlogAdmin = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [posting, setPosting] = useState(false); // New state for tracking posting status
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
 
-  useEffect(() => {
-    // Check the user's role and navigate to the home page if they are not an admin
-    if (!currentUser || currentUser.role !== "admin") {
-      navigate('/');
-    }
-  }, [currentUser, navigate]);
+  // useEffect(() => {
+   
+  //   if (!currentUser || currentUser.role !== "admin") {
+  //     navigate('/');
+  //   }
+  // }, [currentUser, navigate]);
 
 
   useEffect(() => {
