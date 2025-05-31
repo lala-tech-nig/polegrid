@@ -8,6 +8,14 @@ body {
   color: #555555;
 }
 
+body, html {
+  overflow-x: hidden;
+}
+
+[data-aos] {
+  will-change: transform, opacity;
+}
+
 h1,
 h2,
 h3,

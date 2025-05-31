@@ -201,6 +201,10 @@
     .get-started-btn2{
       font-size: 12px;
     }
+
+    .logoimg{
+      width: 90px
+    }
   }
   
   .nav__toggler div{
