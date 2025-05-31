@@ -13,7 +13,7 @@ const TermsandConditions = () => {
         
       <h4 className='terms_heading2'><b>PoleGrid Terms of Service</b></h4>
 
-   <p>Welcome to Vacua, operated by Vacua Limited, registered in England with company number 14549218.
+   <p>Welcome to Polegrid, operated by Polegrid Limited, registered in England with company number 14549218.
 
 By using our Platform, you agree to comply with and be bound by these Terms of Service. Please read them carefully, as they outline the relationship between you (the “user”) and Vacua Limited (“we” or “us”) and the terms governing your use of our services.</p>
 <br />

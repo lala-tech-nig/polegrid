@@ -9,7 +9,7 @@ const Footer = () => {
         <footer id="footer" className="footer dark-background">
     <div className="container">
       <h3 className="sitename">Pole<span className="footer_card1">Grid</span></h3>
-      <p>PoleGrid is your trusted partner in connecting opportunities.</p>
+      <p>Polegrid is SCUML certified  ensuring transparency, security, and integrity in our services.</p>
       <Link className="termsandcondtionslink" to='/termsandconditions'>Terms and Conditions</Link>
       <div className="social-links d-flex justify-content-center">
         {/* <a href=""><i className="bi bi-twitter-x"></i></a> */}
