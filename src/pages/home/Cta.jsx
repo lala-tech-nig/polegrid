@@ -14,7 +14,7 @@ const Cta = () => {
           <div class="text-center">
             <h3>With PoleGrid We connect landowners with telecom companies seeking locations for network tower installations.</h3>
             <p>Subscribe to get your consulation service</p>
-            <Link class="cta-btn" to="/registration">Register Now</Link>
+            <Link class="cta-btn" to="/registration/landlord">Register Now</Link>
           </div>
         </div>
       </div>
