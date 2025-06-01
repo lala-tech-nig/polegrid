@@ -27,7 +27,7 @@
   
   .hero .carousel-item::before {
     content: "";
-    background-color: rgba(118, 114, 114, 0.6);
+    background-color: rgba(86, 85, 85, 0.5);
     position: absolute;
     inset: 0;
   }
