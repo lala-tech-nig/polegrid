@@ -30,6 +30,8 @@ import RegData from "./components/regdata/RegData";
 import Organiation from "./pages/registration/organization/Organiation";
 import OrgainizationAdmin from "./admin/organization/OrgainizationAdmin";
 import LandlordAdmin from "./admin/landlord/LandlordAdmin";
+import Privacypolicy from "./pages/privacy/Privacypolicy";
+import RefundPolicy from "./pages/refundpolicy/RefundPolicy";
 
 export const route = createHashRouter([
     {
@@ -83,6 +85,14 @@ export const route = createHashRouter([
       {
         path: '/testimony',
         element: <Testimony />
+      },
+      {
+        path: '/privacy-policy',
+        element: <Privacypolicy />
+      },
+      {
+        path: '/refund-policy',
+        element: <RefundPolicy />
       },
 
       // Admin 

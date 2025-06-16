@@ -89,7 +89,7 @@ const Form = () => {
                   </div>
                   <div className="icon-box-content">
                     <p className="mb-1">Email.
-                      <span className="color-a">contact@polegrid.com</span>
+                      <span className="color-a">polegrid01@gmail.com</span>
                     </p>
                     <p className="mb-1">Phone.
                       <span className="color-a">+234 701 816 2166</span>
@@ -107,7 +107,7 @@ const Form = () => {
                   </div>
                   <div className="icon-box-content">
                     <p className="mb-1">
-                    Block 4A,  Pinnacle Horizon Estate, Ibeju Lekki,
+                    Block 4A, Ajimo Logere, Pinnacle Horizon Estate, Ibeju Lekki,
                       <br /> Lagos. Nigeria.
                     </p>
                   </div>
