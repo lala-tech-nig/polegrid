@@ -153,7 +153,7 @@ const RegistrationForm = () => {
             <div className="formFlex_ii">
               <label>Service Type:</label>
               <select name="serviceType" value={formData.serviceType} onChange={handleChange}>
-                <option value="telecom">Telecom installation</option>
+                <option value="telecom">Tower</option>
                 <option value="moneyMachine">ATM installation</option>
               </select>
             </div>
