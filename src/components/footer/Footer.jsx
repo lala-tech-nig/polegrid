@@ -15,7 +15,7 @@ const Footer = () => {
       <p>and</p>
       <Link className="termsandcondtionslink" to='/privacy-policy'>Privacy Policy</Link>
       and
-      <Link className="termsandcondtionslink" to='/privacy-policy'>Refund Policy</Link>
+      <Link className="termsandcondtionslink" to='/refund-policy'>Refund Policy</Link>
       </div>
       <div className="social-links d-flex justify-content-center">
         {/* <a href=""><i className="bi bi-twitter-x"></i></a> */}
