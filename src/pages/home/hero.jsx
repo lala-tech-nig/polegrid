@@ -35,8 +35,8 @@ const Hero = () => {
   };
 
   const imagePaths = [
-    couser1,
     couser2,
+    couser1,
     couser3,
   ];
 
