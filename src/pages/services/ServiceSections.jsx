@@ -3,6 +3,7 @@ import ArchitecturalDesign from '../../assets/images/land.webp';
 import StructuralDesign from '../../assets/images/equipment.webp';
 import Property from '../../assets/images/property.webp';
 import Legal from '../../assets/images/legal.jpeg';
+import Atm from '../../assets/images/atm.jpg';
 import { Link } from 'react-router-dom';
 
 const ServiceSections = () => {
@@ -97,6 +98,24 @@ const ServiceSections = () => {
             <h2 className="title">Property Management</h2>
             <p className="post-category">
             Managing rental properties on behalf of landlords, including tenant communications, maintenance, rent collection, and property upkeep.
+            </p> 
+          </article>
+        </div>
+
+        <div
+          className="col-xl-4 col-md-6"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <article>
+        
+            <div className="post-img">
+                <img src={ Atm } alt="Property Management" className="img-fluid" />
+            </div>
+
+            <h2 className="title">ATM Installation</h2>
+            <p className="post-category">
+            We connect banks, businesses, and property owners with fast, secure ATM installation—covering everything from setup to maintenance.
             </p> 
           </article>
         </div>
