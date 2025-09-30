@@ -61,7 +61,7 @@ const Form = () => {
                   </div>
                   <div className="col-md-12">
                     <div className="form-group">
-                      <textarea name="message" className="form-control" name="message" cols="45" rows="8" placeholder="Message" required></textarea>
+                      <textarea name="message" className="form-control" cols="45" rows="8" placeholder="Message" required></textarea>
                     </div>
                   </div>
                   <div className="col-md-12 my-3">

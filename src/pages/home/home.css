@@ -6,6 +6,78 @@
     padding: 0;
   }
   
+
+
+/* my mod */
+
+.hero-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffcc00;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.brand-name {
+  color: #00e5ff;
+}
+
+.typewriter {
+  font-family: "Fira Code", monospace;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 20px;
+  min-height: 2.2rem;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: #ffffff;
+  margin-left: 3px;
+  width: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+.btn-get-started {
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #00e5ff, #ffcc00);
+  color: #000;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-get-started:hover {
+  background: linear-gradient(135deg, #ffcc00, #00e5ff);
+  color: #111;
+}
+
+
+/* my mod end */
+
+
+
+
+
   .hero .carousel {
     width: 100%;
     min-height: 100vh;
