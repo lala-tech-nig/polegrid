@@ -1,8 +1,10 @@
 import Me from '../../assets/images/Daniel.jpg';
 import Slide1 from '../../assets/images/about_hero1.jpeg';
 import CEO from '../../assets/images/Daniel.jpg';
+import usePageTracking from '../../usePageTracking';
 
 const Aboutus = () => {
+  usePageTracking();
   return (
     <section className="section-about">
     <div className="container">

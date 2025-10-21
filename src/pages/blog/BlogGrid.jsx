@@ -4,8 +4,10 @@ import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/Firebase";
 import Pagination from '../../components/pagination/Pagination';
 import { Link } from 'react-router-dom';
+import usePageTracking from '../../usePageTracking';
 
 const BlogGrid = () => {
+  usePageTracking();
   const [blogPosts, setBlogPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 

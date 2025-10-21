@@ -1,6 +1,7 @@
-
+import usePageTracking from "../../../usePageTracking"
 
 const IntroSection = () => {
+  usePageTracking();
   return (
     <section className="intro-single">
     <div className="container">

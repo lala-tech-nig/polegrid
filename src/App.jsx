@@ -3,8 +3,10 @@ import {
 } from "react-router-dom";
 import { route } from "./route";
 import './App.css';
+import usePageTracking from "./usePageTracking";
 
 function App() {
+  // usePageTracking();
   
 
   return (

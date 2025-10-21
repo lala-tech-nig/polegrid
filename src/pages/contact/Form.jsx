@@ -1,7 +1,9 @@
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import usePageTracking from '../../usePageTracking';
 
 const Form = () => {
+  usePageTracking
   const form = useRef();
   const [buttonText, setButtonText] = useState('Send Message');
 

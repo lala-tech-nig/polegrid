@@ -4,8 +4,10 @@ import { db } from '../../firebase/Firebase';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import './gallery.css';
+import usePageTracking from "../../usePageTracking"
 
 const Images = () => {
+  usePageTracking();
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);

@@ -4,8 +4,10 @@ import Pay from "../registration/Pay";
 import Form from "./Form";
 import IntroSection from "./IntroSection";
 import './contact.css'
+import usePageTracking from "../../usePageTracking"
 
 const Contact = () => {
+  usePageTracking();
   return (
     <div>
       <Header />

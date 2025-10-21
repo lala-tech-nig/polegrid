@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 import { collection, query, getDocs, where } from "firebase/firestore";
 import { db } from "../../../firebase/Firebase";
 import '../blog.css'
+import usePageTracking from "../../../usePageTracking";
 
 const FetchBlogDetails = () => {
+  usePageTracking
     const [post, setPost] = useState({});
   const [, setComments] = useState([]);
   const { id } = useParams();

@@ -2,8 +2,10 @@ import Me from '../../assets/images/Daniel.jpg';
 import CEO from '../../assets/images/Daniel.jpg';
 import ProjectManager from '../../assets/images/Project Manager.jpg';
 import TemaGeneral from '../../assets/images/Whole Team.jpg'
+import usePageTracking from '../../usePageTracking';
 
 const Team = () => {
+  usePageTracking();
   return (
     <section id="team" class="team section">
 

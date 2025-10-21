@@ -1,6 +1,9 @@
 import AboutcontentImg from '../../assets/images/mast.jpg';
+import usePageTracking from '../../usePageTracking';
+
 
 const Aboutcontent = () => {
+    usePageTracking();
   return (
     <section id="about" className="aboutcontent section">
 
