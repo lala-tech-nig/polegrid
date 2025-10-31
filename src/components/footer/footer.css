@@ -1,6 +1,11 @@
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
+
+@import "tailwindcss";
+/* import "bootstrap-icons/font/bootstrap-icons.css"; */
+
+
 .footer {
   color: var(--default-color);
   background-color: #f0f0f0;
