@@ -1,12 +1,17 @@
+"use client";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
-import { db, storage } from "../../firebase/Firebase"; 
+import { useNavigate } from "react-router-dom";
+import { db, storage } from "../../firebase/Firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { ToastContainer, toast } from "react-toastify";
+import Confetti from "react-confetti";
+import { motion } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 
-const RegistrationForm = () => {
+const brandColor = "#00A859";
+
+export default function RegistrationForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -19,47 +24,28 @@ const RegistrationForm = () => {
     serviceType: "telecom",
     sex: "male",
   });
-
   const [photoFile, setPhotoFile] = useState(null);
   const [documentFiles, setDocumentFiles] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handlePhotoUpload = (e) => {
-    setPhotoFile(e.target.files[0]);
-  };
-
-  const handleDocumentsUpload = (e) => {
-    const files = Array.from(e.target.files);
-    setDocumentFiles(files.slice(0, 4));
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handlePhotoUpload = (e) => setPhotoFile(e.target.files[0]);
+  const handleDocumentsUpload = (e) => setDocumentFiles(Array.from(e.target.files).slice(0, 4));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!photoFile) {
-      toast.error("Please upload a personal photo (ID or passport).");
-      return;
-    }
-
-    if (documentFiles.length === 0) {
-      toast.error("Please upload at least one supporting document.");
-      return;
-    }
+    if (!photoFile) return toast.error("Please upload a personal photo (ID or passport).");
+    if (documentFiles.length === 0) return toast.error("Please upload at least one supporting document.");
 
     setIsSubmitting(true);
-    toast.info("Registering...");
+    toast.info("Submitting...");
 
     try {
-      // Upload photo
       const photoRef = ref(storage, `photos/${photoFile.name}`);
       const photoUpload = await uploadBytesResumable(photoRef, photoFile);
       const photoUrl = await getDownloadURL(photoUpload.ref);
 
-      // Upload documents
       const documentUrls = await Promise.all(
         documentFiles.map(async (doc) => {
           const docRef = ref(storage, `documents/${doc.name}`);
@@ -68,155 +54,166 @@ const RegistrationForm = () => {
         })
       );
 
-      // Save to Firestore
       await addDoc(collection(db, "landlordregistrations"), {
         ...formData,
         photo: photoUrl,
         documents: documentUrls,
       });
 
-      toast.success("Registration successful!");
+      toast.success("🎉 Registration successful!");
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 4000);
 
-      // Reset form
       setFormData({
         name: "",
         email: "",
         number: "",
         location: "",
         state: "",
-        nearestbustop: "",
         localgovernment: "",
+        nearestbustop: "",
         serviceType: "telecom",
         sex: "male",
       });
       setPhotoFile(null);
       setDocumentFiles([]);
-
-      setTimeout(() => {
-        navigate("/contact");
-      }, 2000);
+      setTimeout(() => navigate("/contact"), 2500);
     } catch (error) {
-      console.error("Error registering:", error);
-      toast.error("An error occurred. Please try again.");
+      console.error(error);
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="get-started" className="get-started section-bg">
-      <div className="container">
-        <ToastContainer />
-        <form onSubmit={handleSubmit}>
-          <div className="form1Flex">
-            <div className="formFlex_i">
-              <label>Name:</label>
-              <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-            </div>
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 px-4 py-12">
+      {showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} />}
+      <ToastContainer />
 
-            <div className="formFlex_ii">
-              <label>Email (optional):</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} />
+      <motion.div
+        className="w-full max-w-2xl bg-white/80 backdrop-blur-lg border border-green-100 shadow-2xl rounded-3xl p-8 md:p-10 relative"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold tracking-tight" style={{ color: brandColor }}>
+            Landlord Registration
+          </h1>
+          <p className="text-gray-500 mt-2 text-sm">
+            Fill your details correctly to get verified.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {[
+            { label: "Full Name", name: "name", type: "text", required: true },
+            { label: "Email (optional)", name: "email", type: "email" },
+            { label: "Phone Number", name: "number", type: "number", required: true },
+            { label: "Property Address", name: "location", type: "text", required: true },
+            { label: "State", name: "state", type: "text", required: true },
+            { label: "Local Government", name: "localgovernment", type: "text", required: true },
+            { label: "Nearest Bus Stop", name: "nearestbustop", type: "text", required: true },
+          ].map((field, i) => (
+            <div key={i}>
+              <label className="block text-sm text-gray-600 font-medium mb-1">{field.label}</label>
+              <input
+                {...field}
+                value={formData[field.name]}
+                onChange={handleChange}
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl shadow-sm text-sm focus:ring-2 focus:ring-green-400 focus:border-green-400 outline-none transition"
+              />
             </div>
+          ))}
+
+          {/* Service Type */}
+          <div>
+            <label className="block text-sm text-gray-600 font-medium mb-1">Service Type</label>
+            <select
+              name="serviceType"
+              value={formData.serviceType}
+              onChange={handleChange}
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-green-400 outline-none"
+            >
+              <option value="telecom">Tower</option>
+              <option value="moneyMachine">ATM Installation</option>
+            </select>
           </div>
 
-          <div className="form1Flex">
-            <div className="formFlex_i">
-              <label>Phone Number:</label>
-              <input type="number" name="number" value={formData.number} onChange={handleChange} required />
-            </div>
-
-            <div className="formFlex_ii">
-              <label>Property Address:</label>
-              <input type="text" name="location" value={formData.location} onChange={handleChange} required />
-            </div>
+          {/* Sex */}
+          <div>
+            <label className="block text-sm text-gray-600 font-medium mb-1">Sex</label>
+            <select
+              name="sex"
+              value={formData.sex}
+              onChange={handleChange}
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-green-400 outline-none"
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
           </div>
 
-          <div className="form1Flex">
-            <div className="formFlex_i">
-              <label>Nearest Bus stop:</label>
-              <input type="text" name="nearestbustop" value={formData.nearestbustop} onChange={handleChange} required />
-            </div>
-
-            <div className="formFlex_ii">
-              <label>Local Government:</label>
-              <input type="text" name="localgovernment" value={formData.localgovernment} onChange={handleChange} required />
-            </div>
-          </div>
-
-          <div className="form1Flex">
-            <div className="formFlex_i">
-              <label>State:</label>
-              <input type="text" name="state" value={formData.state} onChange={handleChange} required />
-            </div>
-
-            <div className="formFlex_ii">
-              <label>Service Type:</label>
-              <select name="serviceType" value={formData.serviceType} onChange={handleChange}>
-                <option value="telecom">Tower</option>
-                <option value="moneyMachine">ATM installation</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Separated File Uploads */}
-          <div className="form1Flex">
-            <div className="formFlex_i">
-              <label>
-                Upload your photo: <br />
-                <small>A valid ID card or passport, or a clear picture of yourself.</small>
-              </label>
-              <input type="file" accept="image/*" onChange={handlePhotoUpload} />
-              {photoFile && (
-                <div style={{ marginTop: "10px" }}>
-                  <img
-                    src={URL.createObjectURL(photoFile)}
-                    alt="Photo Preview"
-                    style={{ width: "100px", height: "100px", objectFit: "cover" }}
-                  />
-                </div>
-              )}
-            </div>
-
-            <div className="formFlex_ii">
-              <label>
-                Upload at least one supporting document: <br />
-                <small>Utility bill, land documents (e.g., certificate of occupancy, deed of assignment), or property/land photo.</small>
-              </label>
-              <input type="file" multiple accept="image/*" onChange={handleDocumentsUpload} />
-              <div style={{ display: "flex", gap: "10px", marginTop: "10px", flexWrap: "wrap" }}>
-                {documentFiles.map((doc, index) => (
-                  <div key={index} style={{ position: "relative" }}>
-                    <img
-                      src={URL.createObjectURL(doc)}
-                      alt={`Doc ${index}`}
-                      style={{ width: "100px", height: "100px", objectFit: "cover" }}
-                    />
-                  </div>
-                ))}
+          {/* Photo Upload */}
+          <div className="md:col-span-2">
+            <label className="block text-sm text-gray-600 font-medium mb-1">
+              Upload Photo <small className="text-gray-400">(Valid ID or Passport)</small>
+            </label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoUpload}
+              className="w-full mt-1 text-sm text-gray-500"
+            />
+            {photoFile && (
+              <div className="flex items-center mt-3">
+                <img
+                  src={URL.createObjectURL(photoFile)}
+                  alt="preview"
+                  className="w-16 h-16 rounded-md object-cover border border-gray-200 shadow-sm"
+                />
+                <p className="ml-3 text-xs text-gray-500 truncate">{photoFile.name}</p>
               </div>
+            )}
+          </div>
+
+          {/* Documents Upload */}
+          <div className="md:col-span-2">
+            <label className="block text-sm text-gray-600 font-medium mb-1">
+              Upload Supporting Documents{" "}
+              <small className="text-gray-400">(Utility bill, deed, or land photo)</small>
+            </label>
+            <input
+              type="file"
+              multiple
+              accept="image/*"
+              onChange={handleDocumentsUpload}
+              className="w-full mt-1 text-sm text-gray-500"
+            />
+            <div className="flex flex-wrap gap-2 mt-3">
+              {documentFiles.map((doc, i) => (
+                <img
+                  key={i}
+                  src={URL.createObjectURL(doc)}
+                  alt={`doc-${i}`}
+                  className="w-16 h-16 rounded-md object-cover border border-gray-200 shadow-sm"
+                />
+              ))}
             </div>
           </div>
 
-          <div className="form1Flex">
-            <div className="formFlex_i">
-              <label>Sex</label>
-              <select name="sex" value={formData.sex} onChange={handleChange}>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="QuoteBtn">
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Submitting..." : "Submit"}
-            </button>
-          </div>
+          {/* Submit Button */}
+          <motion.button
+            whileTap={{ scale: 0.98 }}
+            disabled={isSubmitting}
+            type="submit"
+            className="md:col-span-2 mt-6 w-full py-3 text-white font-semibold rounded-xl shadow-lg transition-all bg-gradient-to-r from-green-500 to-emerald-600 hover:from-emerald-600 hover:to-green-500"
+          >
+            {isSubmitting ? "Submitting..." : "Submit Registration"}
+          </motion.button>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
-};
-
-export default RegistrationForm;
+}

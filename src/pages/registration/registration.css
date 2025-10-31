@@ -1,6 +1,9 @@
 /*=================
    Quote 
 ====================*/
+
+@import "tailwindcss";
+
 .form1Flex {
     display: flex;
     justify-content: space-between;
