@@ -70,24 +70,28 @@ const Testimony = () => {
   };
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-white via-slate-50 to-gray-100 overflow-hidden">
-      {/* Background auras */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-indigo-300/20 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-purple-300/20 rounded-full blur-3xl -z-10"></div>
+    <section className="relative py-20 bg-gradient-to-br from-white via-emerald-50/60 to-emerald-100/30 overflow-hidden">
+      {/* Subtle background effects */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-emerald-300/20 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-emerald-400/10 rounded-full blur-3xl -z-10"></div>
 
       {/* Section Header */}
       <motion.div
-        className="text-center mb-12 px-6"
+        className="text-center mb-14 px-6"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-3">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-emerald-800 mb-3">
           What People Say
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto text-lg">
           Hear from landowners and clients across Nigeria who have partnered
-          with <span className="text-indigo-600 font-semibold">PoleGrid Solutions</span>.
+          with{" "}
+          <span className="text-emerald-600 font-semibold">
+            PoleGrid Solutions
+          </span>
+          .
         </p>
       </motion.div>
 
@@ -102,15 +106,15 @@ const Testimony = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <div className="bg-white/70 backdrop-blur-xl border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500">
+              <div className="bg-white/80 backdrop-blur-xl border border-emerald-100 rounded-3xl p-8 shadow-sm hover:shadow-2xl hover:border-emerald-300 transition-all duration-500">
                 <div className="flex items-center gap-4 mb-4">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-16 h-16 rounded-full object-cover ring-4 ring-indigo-100"
+                    className="w-16 h-16 rounded-full object-cover ring-4 ring-emerald-100"
                   />
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">
+                    <h3 className="text-lg font-semibold text-emerald-800">
                       {item.name}
                     </h3>
                     <p className="text-sm text-gray-500">{item.role}</p>
@@ -118,9 +122,13 @@ const Testimony = () => {
                 </div>
 
                 <p className="text-gray-700 leading-relaxed italic">
-                  <span className="text-indigo-600 text-2xl font-serif mr-1">“</span>
+                  <span className="text-emerald-600 text-2xl font-serif mr-1">
+                    “
+                  </span>
                   {item.quote}
-                  <span className="text-indigo-600 text-2xl font-serif ml-1">”</span>
+                  <span className="text-emerald-600 text-2xl font-serif ml-1">
+                    ”
+                  </span>
                 </p>
 
                 {/* Star Rating */}
