@@ -1,66 +1,134 @@
-import AboutcontentImg from '../../assets/images/mast.jpg';
-import usePageTracking from '../../usePageTracking';
-
+import React from "react";
+import { motion } from "framer-motion";
+import AboutcontentImg from "../../assets/images/mast.jpg";
+import usePageTracking from "../../usePageTracking";
 
 const Aboutcontent = () => {
-    usePageTracking();
+  usePageTracking();
+
   return (
-    <section id="about" className="aboutcontent section">
+    <section className="relative bg-gradient-to-b from-white via-green-50/20 to-white py-24 overflow-hidden">
+      {/* Animated Background Gradient Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.15),transparent_60%),radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.1),transparent_60%)]"></div>
 
-            <div className="container">
+      <div className="container mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        {/* Image Section */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-700"
+        >
+          <img
+            src={AboutcontentImg}
+            alt="About PoleGrid"
+            className="w-full h-[460px] object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 via-green-700/30 to-transparent"></div>
 
-                <div className="row position-relative">
+          {/* Floating caption */}
+          <div className="absolute bottom-6 left-6 text-white">
+            <motion.h4
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="uppercase tracking-wide text-xs font-semibold opacity-75"
+            >
+              PoleGrid Solutions
+            </motion.h4>
+            <motion.h2
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-3xl font-bold leading-tight"
+            >
+              Connecting Growth <br /> & Development
+            </motion.h2>
+          </div>
+        </motion.div>
 
-                    <div className="col-lg-7 about-img" data-aos="zoom-out" data-aos-delay="200"><img
-                            src={ AboutcontentImg } /></div>
+        {/* Text Section */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-snug">
+            What is <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-400">PoleGrid?</span>
+          </h3>
 
-                    <div className="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-                        {/* <h2 className="inner-title">Simplifying Student Housing for You.</h2> */}
-                        <div className="our-story">
-                            {/* <h4>Est 1988</h4> */}
-                            <h3>What is PoleGrid?</h3>
-                            <p>
-                            At Polegrid Solutions, we specialize in creating connections that drive growth and development. Our expertise spans three key areas:
-                            </p>
-                            <p>
-                            <b>Telecom Site Acquisition</b>: We bridge the gap between landowners, telecom companies, and tower companies, facilitating seamless acquisitions of prime land and locations for telecom tower installations.
+          <p className="text-gray-600 mb-8 leading-relaxed text-lg">
+            At PoleGrid Solutions, we specialize in creating <b>connections that drive growth and development</b>. 
+            Our expertise spans across three strategic domains that strengthen both businesses and communities:
+          </p>
 
-                            </p>
-                            <p>
-                            <b>Financial Services Connectivity</b>: We link businesses, such as shops and supermarkets, with financial institutions to facilitate ATMs (money machines)installations and access other financial services, enhancing their financial development.
+          {/* Services List */}
+          <div className="space-y-6 text-gray-700">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="p-4 rounded-xl bg-white/70 backdrop-blur-lg border border-green-100 shadow-sm hover:shadow-md transition"
+            >
+              <p>
+                <b className="text-green-600">Telecom Site Acquisition:</b> We bridge the gap between landowners and telecom operators, 
+                ensuring smooth site acquisition for modern network infrastructures.
+              </p>
+            </motion.div>
 
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="p-4 rounded-xl bg-white/70 backdrop-blur-lg border border-green-100 shadow-sm hover:shadow-md transition"
+            >
+              <p>
+                <b className="text-green-600">Financial Services Connectivity:</b> We link local businesses with financial institutions 
+                for ATM placements and fintech solutions that boost economic accessibility.
+              </p>
+            </motion.div>
 
-                            </p>
-                            <p>
-                            <b>Real Estate Services</b>: Our comprehensive real estate solutions empower individuals and organizations to acquire, sell, or manage properties efficiently.
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="p-4 rounded-xl bg-white/70 backdrop-blur-lg border border-green-100 shadow-sm hover:shadow-md transition"
+            >
+              <p>
+                <b className="text-green-600">Real Estate Services:</b> We empower individuals and organizations to buy, sell, 
+                and manage properties with precision and confidence.
+              </p>
+            </motion.div>
+          </div>
 
-                            </p>
-                            <ul>
-                                <li><i className="bi bi-check-circle"></i> <span><b>Our Vision:</b> Our vision is to be the leading platform solutions provider for property and equipment connection services empowering individuals, businesses, and communities to thrive in a rapidly evolving world.</span></li>
-                                <li><i className="bi bi-check-circle"></i> <span><b>Our Mission:</b> To empower Landowners , telecom companies , tower companies and businesses through reliable and innovative solutions.</span></li>
-                               
-                            </ul>
-                            <p>
-                            As a connectivity solutions provider, we foster partnerships between landowners, telecom companies, financial institutions, and property owners. With years of industry experience, we understand the challenges and opportunities in connecting people and businesses.
+          {/* Vision & Mission */}
+          <div className="mt-10 bg-gradient-to-br from-green-50 to-white rounded-3xl border border-green-100 shadow-md p-8 hover:shadow-lg transition">
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <i className="bi bi-check-circle text-green-600 text-2xl"></i>
+                <p>
+                  <b>Our Vision:</b> To become the leading platform connecting property, telecom, and finance sectors 
+                  for sustainable growth across Africa.
+                </p>
+              </li>
+              <li className="flex gap-3">
+                <i className="bi bi-check-circle text-green-600 text-2xl"></i>
+                <p>
+                  <b>Our Mission:</b> To empower landowners, telecom providers, and businesses with efficient, 
+                  tech-driven, and transparent connectivity solutions.
+                </p>
+              </li>
+            </ul>
+          </div>
 
-<br /><br />Our team provides expert support, reliable resources, and innovative tools to ensure success for all parties involved.
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-10 text-gray-700 leading-relaxed"
+          >
+            As a trusted connectivity partner, we unite landowners, telecom companies, 
+            and financial institutions with a shared goal — to build reliable and future-ready infrastructures. 
+            Our dedicated team ensures every project is executed with innovation, integrity, and impact.
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
-                            </p>
-
-                            {/* <div className="watch-video d-flex align-items-center position-relative">
-                                <i className="bi bi-play-circle"></i>
-                                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8"
-                                    className="glightbox stretched-link">Watch Video</a>
-                            </div> */}
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-  )
-}
-
-export default Aboutcontent
+export default Aboutcontent;
