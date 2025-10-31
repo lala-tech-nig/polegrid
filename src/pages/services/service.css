@@ -1,6 +1,8 @@
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
+@import "tailwindcss";
+
 .services .img {
     border-radius: 8px;
     overflow: hidden;
